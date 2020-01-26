@@ -1,0 +1,97 @@
+body {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(0, 0%, 10%);
+  cursor: none;
+}
+
+body::before {
+  --size: 0;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, pink, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+body:hover::before {
+  --size: 50px;
+}
+
+.box {
+  height: 500px;
+  width: 500px;
+  transform: rotateZ(-90deg);
+  pointer-events: none;
+}
+
+circle {
+  fill: transparent;
+  stroke-dashoffset: var(--stroke-dashoffset);
+  stroke-dasharray: var(--stroke-dasharray);
+}
+
+.months {
+  stroke: url(#months-gradient);
+}
+#months-gradient {
+  --color-start: hsl(300, 75%, 35%);
+  --color-end: hsl(330, 75%, 35%);
+}
+
+.days {
+  stroke: url(#days-gradient);
+}
+#days-gradient {
+  --color-start: hsl(240, 75%, 35%);
+  --color-end: hsl(270, 75%, 35%);
+}
+
+.hours {
+  stroke: url(#hours-gradient);
+}
+#hours-gradient {
+  --color-start: hsl(180, 75%, 35%);
+  --color-end: hsl(210, 75%, 35%);
+}
+
+.minutes {
+  stroke: url(#minutes-gradient);
+}
+#minutes-gradient {
+  --color-start: hsl(120, 75%, 35%);
+  --color-end: hsl(150, 75%, 35%);
+}
+
+.seconds {
+  stroke: url(#seconds-gradient);
+}
+#seconds-gradient {
+  --color-start: hsl(60, 75%, 35%);
+  --color-end: hsl(90, 75%, 35%);
+}
+
+.milliseconds {
+  stroke: url(#milliseconds-gradient);
+}
+#milliseconds-gradient {
+  --color-start: hsl(0, 75%, 35%);
+  --color-end: hsl(30, 75%, 35%);
+}
+
+.date {
+  position: absolute;
+  right: 10;
+  bottom: 0;
+  color: hsl(0, 0%, 75%);
+  pointer-events: none;
+}
